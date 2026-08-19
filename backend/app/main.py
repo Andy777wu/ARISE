@@ -5,9 +5,11 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.v1.router import api_router
 from app.core.config import get_settings
+from app.core.exceptions import AppError, app_error_handler
 
 settings = get_settings()
 app = FastAPI(title="ARISE API", version="0.1.0")
+app.add_exception_handler(AppError, app_error_handler)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origin_list,

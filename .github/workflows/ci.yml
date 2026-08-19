@@ -14,7 +14,7 @@ jobs:
       - name: Build application images
         run: docker compose build
       - name: Start PostgreSQL
-        run: docker compose up -d postgres
+        run: docker compose up -d postgres redis
       - name: Verify backend
         run: >
           docker compose run --rm --no-deps backend sh -c

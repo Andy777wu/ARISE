@@ -17,12 +17,24 @@ services:
       timeout: 5s
       retries: 12
 
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
   backend:
     build:
       context: ./backend
     environment:
       ARISE_DATABASE_URL: postgresql+psycopg://arise:arise-dev-only@postgres:5432/arise
       ARISE_CORS_ORIGINS: http://localhost:5173
+      ARISE_REDIS_URL: redis://redis:6379/0
+      ARISE_JWT_SECRET: arise-dev-only-secret-change-in-production
       WATCHFILES_FORCE_POLLING: "true"
     command: >
       sh -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
@@ -32,6 +44,8 @@ services:
       - ./backend:/app
     depends_on:
       postgres:
+        condition: service_healthy
+      redis:
         condition: service_healthy
 
   frontend:

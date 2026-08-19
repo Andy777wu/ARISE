@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>合并分类 - ARISE Finance</title>
+<!-- Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#f0edef",
+                        "surface-tint": "#0059c7",
+                        "outline": "#727786",
+                        "warning": "#faad14",
+                        "on-primary-fixed-variant": "#004398",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1b1b1d",
+                        "tertiary": "#9e3d00",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "background": "#fcf8fb",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#d9e2ff",
+                        "outline-variant": "#c1c6d7",
+                        "primary-container": "#006ef2",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e4e2e4",
+                        "primary-fixed-dim": "#afc6ff",
+                        "on-secondary-fixed": "#191c1d",
+                        "on-secondary-container": "#626566",
+                        "surface": "#fcf8fb",
+                        "tertiary-fixed": "#ffdbcd",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#e1e3e4",
+                        "on-error": "#ffffff",
+                        "primary": "#0057c2",
+                        "on-primary-container": "#fefcff",
+                        "on-tertiary-fixed": "#351000",
+                        "secondary": "#5c5f60",
+                        "selection-bg": "#e6f7ff",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "surface-container-high": "#eae7ea",
+                        "tertiary-fixed-dim": "#ffb595",
+                        "surface-dim": "#dcd9dc",
+                        "outline-muted": "#c1c6d7",
+                        "on-tertiary-container": "#fffbff",
+                        "inverse-on-surface": "#f3f0f2",
+                        "tertiary-container": "#bf551c",
+                        "inverse-surface": "#303032",
+                        "success": "#52c41a",
+                        "on-primary-fixed": "#001a43",
+                        "surface-container-highest": "#e4e2e4",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#444748",
+                        "inverse-primary": "#afc6ff",
+                        "surface-bright": "#fcf8fb",
+                        "surface-canvas": "#fcf8fb",
+                        "on-background": "#1b1b1d",
+                        "surface-container-low": "#f6f3f5",
+                        "secondary-fixed-dim": "#c5c7c8",
+                        "secondary-fixed": "#e1e3e4",
+                        "on-surface-variant": "#414755"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "tree-indent": "24px",
+                        "margin-lg": "24px",
+                        "stack-md": "16px",
+                        "base": "4px",
+                        "node-gap": "8px",
+                        "gutter-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "label-caps": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "tree-node": ["Manrope"],
+                        "body-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "tree-node": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide scrollbar for clean mobile look */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-canvas text-on-surface font-body-lg h-screen flex flex-col relative overflow-hidden">
+<!-- Header (P08 TopAppBar mapping) -->
+<header class="fixed top-0 w-full z-50 bg-surface-bright border-b border-outline-variant flex items-center justify-between px-margin-lg h-16 shadow-sm">
+<button class="text-on-surface-variant hover:text-primary font-body-lg transition-colors" type="button">
+            取消
+        </button>
+<h1 class="font-headline-md text-headline-md font-bold text-surface-tint">
+            分类合并
+        </h1>
+<div class="w-8"></div> <!-- Spacer to center title -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto pt-16 pb-48">
+<!-- Top Banner/Tip -->
+<div class="bg-primary-fixed-dim/20 px-margin-lg py-stack-md flex items-center gap-2 border-b border-outline-variant/50">
+<span class="material-symbols-outlined text-primary text-[18px]">info</span>
+<p class="font-body-sm text-on-surface-variant">请选择要合并的分类（2 个及以上）</p>
+</div>
+<!-- Category List -->
+<div class="bg-surface">
+<!-- Item 1: Selected -->
+<label class="flex items-center px-margin-lg py-stack-md border-b border-outline-variant bg-selection-bg cursor-pointer transition-colors hover:bg-selection-bg/80">
+<input checked="" class="peer sr-only" type="checkbox">
+<div class="w-5 h-5 rounded-[8px] border-2 border-primary bg-primary flex items-center justify-center mr-stack-md flex-shrink-0 transition-all">
+<span class="material-symbols-outlined text-on-primary text-[14px]">check</span>
+</div>
+<div class="flex items-center gap-3 flex-1">
+<div class="w-10 h-10 rounded-full bg-primary-fixed/50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">directions_car</span>
+</div>
+<span class="font-tree-node text-tree-node text-on-surface">交通出行</span>
+</div>
+</label>
+<!-- Item 2: Selected -->
+<label class="flex items-center px-margin-lg py-stack-md border-b border-outline-variant bg-selection-bg cursor-pointer transition-colors hover:bg-selection-bg/80">
+<input checked="" class="peer sr-only" type="checkbox">
+<div class="w-5 h-5 rounded-[8px] border-2 border-primary bg-primary flex items-center justify-center mr-stack-md flex-shrink-0 transition-all">
+<span class="material-symbols-outlined text-on-primary text-[14px]">check</span>
+</div>
+<div class="flex items-center gap-3 flex-1">
+<div class="w-10 h-10 rounded-full bg-primary-fixed/50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">local_gas_station</span>
+</div>
+<span class="font-tree-node text-tree-node text-on-surface">加油费</span>
+</div>
+</label>
+<!-- Item 3: Unselected -->
+<label class="flex items-center px-margin-lg py-stack-md border-b border-outline-variant bg-surface cursor-pointer transition-colors hover:bg-surface-container-low">
+<input class="peer sr-only" type="checkbox">
+<div class="w-5 h-5 rounded-[8px] border-2 border-outline-variant bg-surface flex items-center justify-center mr-stack-md flex-shrink-0 transition-all peer-checked:bg-primary peer-checked:border-primary">
+<span class="material-symbols-outlined text-on-primary text-[14px] opacity-0 peer-checked:opacity-100 transition-opacity">check</span>
+</div>
+<div class="flex items-center gap-3 flex-1">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">local_taxi</span>
+</div>
+<span class="font-tree-node text-tree-node text-on-surface">打车费</span>
+</div>
+</label>
+<!-- Item 4: Unselected -->
+<label class="flex items-center px-margin-lg py-stack-md border-b border-outline-variant bg-surface cursor-pointer transition-colors hover:bg-surface-container-low">
+<input class="peer sr-only" type="checkbox">
+<div class="w-5 h-5 rounded-[8px] border-2 border-outline-variant bg-surface flex items-center justify-center mr-stack-md flex-shrink-0 transition-all peer-checked:bg-primary peer-checked:border-primary">
+<span class="material-symbols-outlined text-on-primary text-[14px] opacity-0 peer-checked:opacity-100 transition-opacity">check</span>
+</div>
+<div class="flex items-center gap-3 flex-1">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">train</span>
+</div>
+<span class="font-tree-node text-tree-node text-on-surface">公共交通</span>
+</div>
+</label>
+</div>
+</main>
+<!-- Bottom Sheet / Merge Action Bar -->
+<div class="fixed bottom-0 w-full z-50 bg-surface shadow-[0_-4px_20px_rgba(0,0,0,0.08)] border-t border-outline-variant pb-[env(safe-area-inset-bottom)] rounded-t-2xl">
+<div class="p-margin-lg flex flex-col gap-stack-md">
+<!-- Input Field -->
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">new_label</span>
+</div>
+<input class="w-full bg-surface-container-low border border-transparent focus:border-primary focus:bg-surface rounded-lg pl-10 pr-4 py-3 font-body-lg text-on-surface outline-none transition-colors placeholder:text-outline" placeholder="新分类名称" type="text">
+</div>
+<!-- Primary Action Button -->
+<button class="w-full bg-primary text-on-primary font-headline-md text-headline-md py-3 rounded-full flex items-center justify-center gap-2 active:opacity-70 transition-opacity shadow-sm">
+<span class="material-symbols-outlined">call_merge</span>
+                确认合并
+            </button>
+</div>
+</div>
+</body></html>

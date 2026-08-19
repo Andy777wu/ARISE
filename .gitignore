@@ -52,6 +52,12 @@ pnpm-debug.log*
 *~
 .DS_Store
 
+# Local task inspection output
+.tmp_stitch_t01/
+
+# Docker runtime data
+postgres_data/
+
 # Temp / OS
 Thumbs.db
 desktop.ini

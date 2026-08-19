@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build application images
+        run: docker compose build
+      - name: Start PostgreSQL
+        run: docker compose up -d postgres
+      - name: Verify backend
+        run: >
+          docker compose run --rm --no-deps backend sh -c
+          "alembic upgrade head && pytest -p no:cacheprovider && ruff check . && ruff format --check ."
+      - name: Verify frontend
+        run: >
+          docker compose run --rm --no-deps frontend sh -c
+          "npm run lint && npm run format:check && npm run build"
+      - name: Stop services
+        if: always()
+        run: docker compose down --volumes --remove-orphans

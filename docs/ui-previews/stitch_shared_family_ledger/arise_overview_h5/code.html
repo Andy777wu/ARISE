@@ -1,0 +1,344 @@
+<!DOCTYPE html><html class="light" lang="zh-CN" style="width: 390px; height: 1030px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ARISE Family - 资产总览</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#bcd6fe",
+                        "on-tertiary-container": "#f8ffee",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#afc6ff",
+                        "on-tertiary-fixed-variant": "#1a5200",
+                        "surface-container-high": "#e6e8eb",
+                        "on-secondary-fixed": "#001c38",
+                        "on-background": "#191c1e",
+                        "surface-tint": "#0059c7",
+                        "on-primary": "#ffffff",
+                        "secondary": "#466082",
+                        "primary": "#0057c2",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1c6d7",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d9e2ff",
+                        "tertiary-fixed-dim": "#6de039",
+                        "surface-dim": "#d8dadd",
+                        "background": "#f7f9fc",
+                        "inverse-surface": "#2d3133",
+                        "inverse-on-surface": "#eff1f4",
+                        "on-surface-variant": "#414755",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#001a43",
+                        "surface-bright": "#f7f9fc",
+                        "surface-container": "#eceef1",
+                        "on-primary-container": "#fefcff",
+                        "outline": "#727786",
+                        "tertiary-fixed": "#88fd54",
+                        "secondary-fixed-dim": "#aec8f0",
+                        "inverse-primary": "#afc6ff",
+                        "surface-container-highest": "#e0e3e6",
+                        "on-secondary-container": "#435d7f",
+                        "on-secondary-fixed-variant": "#2e4869",
+                        "secondary-fixed": "#d3e4ff",
+                        "on-tertiary-fixed": "#062100",
+                        "on-error-container": "#93000a",
+                        "surface": "#f7f9fc",
+                        "surface-variant": "#e0e3e6",
+                        "tertiary-container": "#308600",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#004398",
+                        "on-surface": "#191c1e",
+                        "primary-container": "#006ef2",
+                        "surface-container-low": "#f2f4f7",
+                        "tertiary": "#256a00"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "card-gap": "24px",
+                        "stack-md": "20px",
+                        "stack-sm": "12px",
+                        "container-padding": "16px", // Adjusted for mobile
+                        "gutter": "24px",
+                        "unit": "8px"
+                    },
+                    fontFamily: {
+                        "label-bold": ["Manrope", "sans-serif"],
+                        "display-lg-mobile": ["Manrope", "sans-serif"],
+                        "body-md": ["Manrope", "sans-serif"],
+                        "display-lg": ["Manrope", "sans-serif"],
+                        "headline-md": ["Manrope", "sans-serif"],
+                        "body-lg": ["Manrope", "sans-serif"],
+                        "label-sm": ["Manrope", "sans-serif"]
+                    },
+                    fontSize: {
+                        "label-bold": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; -webkit-font-smoothing: antialiased; }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1677FF 0%, #004398 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: -20%; right: -20%;
+            width: 60%; height: 60%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-gradient::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: inherit;
+            pointer-events: none;
+        }
+        .card-shadow { box-shadow: 0px 4px 20px rgba(0, 33, 64, 0.05); }
+        .sankey-line-blue { stroke: url(#sankeyGradBlue); stroke-width: 12; fill: none; stroke-linecap: round; }
+        .sankey-line-orange { stroke: url(#sankeyGradOrange); stroke-width: 12; fill: none; stroke-linecap: round; }
+        
+        /* Custom scrollbar hiding for clean UI */
+        ::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background w-full min-h-screen pb-24 mx-auto max-w-[375px] md:max-w-md relative overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface w-full top-0 sticky shadow-sm z-40 flex items-center justify-between px-container-padding py-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">home</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary font-bold">我的家</h1>
+</div>
+<div class="relative cursor-pointer active:opacity-70">
+<span class="material-symbols-outlined text-primary">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border border-surface"></span>
+</div>
+</header>
+<main class="px-container-padding py-stack-md flex flex-col gap-stack-md">
+<!-- Segmented Control -->
+<div class="bg-surface-container-low p-1 rounded-full flex w-full">
+<button class="flex-1 py-1.5 rounded-full bg-surface shadow-sm text-primary font-label-bold text-label-bold transition-all">家庭总览</button>
+<button class="flex-1 py-1.5 rounded-full text-on-surface-variant font-label-bold text-label-bold transition-all">个人总览</button>
+</div>
+<!-- Net Worth Hero Card -->
+<div class="hero-gradient rounded-xl p-5 text-on-primary card-shadow relative">
+<div class="flex justify-between items-start mb-2">
+<span class="font-body-md text-on-primary/80">家庭净资产 (¥)</span>
+<div class="bg-white/20 backdrop-blur-sm px-2.5 py-1 rounded-full flex items-center gap-1 border border-white/10">
+<span class="material-symbols-outlined text-[14px]">group</span>
+<span class="font-label-sm text-label-sm">成员 3 人</span>
+</div>
+</div>
+<div class="font-display-lg-mobile text-display-lg-mobile mb-4 tracking-tight">
+                1,234,567.89
+            </div>
+<div class="flex items-center gap-2">
+<span class="font-body-md text-on-primary/80">较上月</span>
+<span class="font-label-bold text-label-bold text-[#FF4D4F] bg-white/90 px-2 py-0.5 rounded flex items-center">
+<span class="material-symbols-outlined text-[14px] mr-0.5">trending_up</span>
+                    +12,345
+                </span>
+</div>
+</div>
+<!-- Family Members Assets -->
+<section class="bg-surface rounded-xl p-4 card-shadow">
+<h2 class="font-label-bold text-label-bold text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: &quot;FILL&quot; 1;">family_restroom</span>
+                成员资产
+            </h2>
+<div class="flex flex-col gap-3">
+<!-- Member 1 -->
+<div class="flex items-center justify-between pb-3 border-b border-surface-variant last:border-0 last:pb-0">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-primary to-secondary-container">
+<img class="w-full h-full rounded-full object-cover border-2 border-surface" data-alt="A clean, professional avatar portrait of a mature male, soft lighting, modern corporate style, light background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW9BOpP4kKwMw90E9RuPPOokKsbtoaXo2CLcC9Gtg5LeRHNBofyqlYUz5qEs6MG6VoxPRieMcr5eK-IIhvkOAKX5mzYKIGx506ki0vr04jwkNTYWk8Kp4bxKGIIN0bn5sqZK7uUSKlzd06Qn0HB_a4UMnTc-r-sDjsLG90mrIvr-wazip9rrzQH8WX324qeJaHZjBqFuNEdJ7u-Y2FhJFsKH3mGzolCpwtL7LBUtpxPMZdAkgmz890Zri0pwhGMcPel0Bp9wFOIFdo">
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-md text-on-surface font-semibold">爸爸</span>
+<span class="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded font-medium">户主</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">¥850,000</span>
+</div>
+</div>
+<div class="text-right">
+<span class="block font-label-bold text-label-bold text-tertiary">+2.4%</span>
+</div>
+</div>
+<!-- Member 2 -->
+<div class="flex items-center justify-between pb-3 border-b border-surface-variant last:border-0 last:pb-0">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-primary to-secondary-container">
+<img class="w-full h-full rounded-full object-cover border-2 border-surface" data-alt="A clean, professional avatar portrait of a mature female, soft lighting, modern corporate style, light background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5FU3PMUOw5TVo3FJpaC5cZOBZ4LWNop0-R0bpYf_tZ1g3BNWjR-gFg_0vj7F1EjPCFf3ggL6JLht6scFMwfzo5wj4TQ_v6V3MN9f5DfcS3i0-h6zJw2NlZZzttT16khZhlt0nTeqPUrszVIkm3M9nIDAkToc3vbEEWZKd_noJOW-Gi079zyUF9QXkehjuFf_LCePCqNggfgscO4S8a6gG7kuG0BDlh3S4M-RrUZCMl-lpzPsDbaRrpz_70w5msZSFgRQ1Bbm5MRwj">
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-md text-on-surface font-semibold">妈妈</span>
+<span class="text-[10px] bg-secondary-container/50 text-secondary px-1.5 py-0.5 rounded font-medium">管理员</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">¥350,000</span>
+</div>
+</div>
+<div class="text-right">
+<span class="block font-label-bold text-label-bold text-tertiary">+1.1%</span>
+</div>
+</div>
+<!-- Member 3 -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-surface-variant to-outline-variant">
+<img class="w-full h-full rounded-full object-cover border-2 border-surface" data-alt="A cute, stylized avatar portrait of a child, soft lighting, playful yet clean design, light background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc2rmodwQRY8n053pR0UAuYG2mNjk8FKOVaV0XDc8QeZ0ix6vLoLzGSApw80xCEMI1nJo9IrFH7-TaGfczVAWRZuN3d7sDncRlHCAqMVPbboAa76vqEeFEQ8BP99Szyrr3QFQc1FUV2XrR-SD43SLXQVxGiv3t1o5b-Xf3zJJqZ4_-RWuNpjPmrZh11F2fVWZzdHbWnSAN2igWT2eUpHMBNI3CPuSy5Z125UMmB5K1u8jo33f6YNwWwqsJQvVhkanJxvfVLk7YnV6b">
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-md text-on-surface font-semibold">宝贝</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">¥34,567</span>
+</div>
+</div>
+<div class="text-right">
+<span class="block font-label-bold text-label-bold text-on-surface-variant">-0.5%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Asset Distribution (Mock Sankey) -->
+<section class="bg-surface rounded-xl p-4 card-shadow">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-label-bold text-label-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">account_balance</span>
+                    资产流向
+                </h2>
+<div class="bg-surface-container-low p-0.5 rounded flex text-[10px] font-medium">
+<button class="px-2 py-0.5 bg-white shadow-sm rounded text-primary">金额</button>
+<button class="px-2 py-0.5 text-on-surface-variant">占比</button>
+</div>
+</div>
+<div class="relative h-40 w-full overflow-hidden flex items-center justify-between text-label-sm text-label-sm text-on-surface">
+<!-- SVG for Sankey lines -->
+<svg class="absolute inset-0 w-full h-full z-0" preserveAspectRatio="none" viewBox="0 0 100 100">
+<defs>
+<linearGradient id="sankeyGradBlue" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#0057c2" stop-opacity="0.6"></stop>
+<stop offset="100%" stop-color="#bcd6fe" stop-opacity="0.3"></stop>
+</linearGradient>
+</defs>
+<!-- Total to Bank -->
+<path class="sankey-line-blue" d="M 15 50 C 40 50, 40 20, 65 20" stroke-width="15"></path>
+<!-- Total to Fund -->
+<path class="sankey-line-blue" d="M 15 50 C 40 50, 40 50, 65 50" stroke-width="8"></path>
+<!-- Total to Stock -->
+<path class="sankey-line-blue" d="M 15 50 C 40 50, 40 80, 65 80" stroke-width="6"></path>
+<!-- Bank to Alipay/Wechat -->
+<path class="sankey-line-blue" d="M 65 20 C 80 20, 80 35, 95 35" stroke-width="8"></path>
+<path class="sankey-line-blue" d="M 65 20 C 80 20, 80 10, 95 10" stroke-width="6"></path>
+</svg>
+<div class="z-10 flex flex-col justify-center items-start w-1/4 h-full pl-2">
+<div class="bg-primary text-on-primary px-2 py-1 rounded text-center w-full shadow-sm text-[10px] font-semibold">家庭总资产<br>123.4w</div>
+</div>
+<div class="z-10 flex flex-col justify-between items-center w-1/3 h-full py-4">
+<div class="bg-white border border-outline-variant px-2 py-1 rounded text-center shadow-sm text-[10px]">银行存款<br>80w</div>
+<div class="bg-white border border-outline-variant px-2 py-1 rounded text-center shadow-sm text-[10px]">基金<br>30w</div>
+<div class="bg-white border border-outline-variant px-2 py-1 rounded text-center shadow-sm text-[10px]">股票<br>13.4w</div>
+</div>
+<div class="z-10 flex flex-col justify-start items-end w-1/4 h-full pt-4 pr-2 gap-4">
+<div class="bg-surface-container-low px-2 py-1 rounded text-center text-on-surface-variant text-[10px]">支付宝 40w</div>
+<div class="bg-surface-container-low px-2 py-1 rounded text-center text-on-surface-variant text-[10px]">微信 20w</div>
+</div>
+</div>
+</section>
+<!-- Debt Distribution (Mock Sankey) -->
+<section class="bg-surface rounded-xl p-4 card-shadow">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-label-bold text-label-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[20px]">credit_card</span>
+                    负债分布
+                </h2>
+<div class="bg-surface-container-low p-0.5 rounded flex text-[10px] font-medium">
+<button class="px-2 py-0.5 bg-white shadow-sm rounded text-primary">金额</button>
+<button class="px-2 py-0.5 text-on-surface-variant">占比</button>
+</div>
+</div>
+<div class="relative h-24 w-full overflow-hidden flex items-center justify-between text-label-sm text-label-sm text-on-surface">
+<svg class="absolute inset-0 w-full h-full z-0" preserveAspectRatio="none" viewBox="0 0 100 100">
+<defs>
+<linearGradient id="sankeyGradOrange" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#ba1a1a" stop-opacity="0.5"></stop>
+<stop offset="100%" stop-color="#ffdad6" stop-opacity="0.3"></stop>
+</linearGradient>
+</defs>
+<!-- Total Debt to Mortgage -->
+<path class="sankey-line-orange" d="M 20 50 C 45 50, 45 25, 75 25" stroke-width="12"></path>
+<!-- Total Debt to Car Loan -->
+<path class="sankey-line-orange" d="M 20 50 C 45 50, 45 65, 75 65" stroke-width="4"></path>
+<!-- Total Debt to Consumer Loan -->
+<path class="sankey-line-orange" d="M 20 50 C 45 50, 45 85, 75 85" stroke-width="2"></path>
+</svg>
+<div class="z-10 flex flex-col justify-center items-start w-1/3 h-full pl-2">
+<div class="bg-error text-on-error px-2 py-1 rounded text-center shadow-sm text-[10px] font-semibold">家庭总负债<br>250w</div>
+</div>
+<div class="z-10 flex flex-col justify-between items-end w-1/3 h-full py-2 pr-2">
+<div class="bg-white border border-error-container px-2 py-1 rounded text-center shadow-sm text-[10px]">房贷 220w</div>
+<div class="bg-white border border-error-container px-2 py-1 rounded text-center shadow-sm text-[10px]">车贷 25w</div>
+<div class="bg-white border border-error-container px-2 py-1 rounded text-center shadow-sm text-[10px]">消费贷 5w</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-6 left-0 right-0 z-50 flex justify-around items-center bg-surface-container-highest/90 backdrop-blur-md shadow-[0px_4px_20px_rgba(0,33,64,0.05)] mx-auto w-[90%] max-w-[340px] rounded-full px-6 py-3 font-label-sm text-label-sm">
+<button class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-1.5 transition-all duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">dashboard</span>
+<span class="mt-0.5">首页</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="mt-0.5">趋势</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">category</span>
+<span class="mt-0.5">分类</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">person</span>
+<span class="mt-0.5">我的</span>
+</button>
+</nav>
+
+
+
+
+</body></html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>ARISE - 登录</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "secondary-container": "#e1e3e4",
+                        "tertiary-fixed": "#ffdbcc",
+                        "outline-variant": "#c1c6d7",
+                        "surface-container-high": "#eae7ea",
+                        "on-background": "#1b1b1d",
+                        "surface-bright": "#fcf8fb",
+                        "on-error-container": "#93000a",
+                        "primary": "#0057c2",
+                        "surface-dim": "#dcd9dc",
+                        "on-secondary-container": "#626566",
+                        "surface-tint": "#0059c7",
+                        "outline": "#727786",
+                        "surface": "#fcf8fb",
+                        "inverse-on-surface": "#f3f0f2",
+                        "secondary": "#5c5f60",
+                        "on-surface-variant": "#414755",
+                        "surface-container": "#f0edef",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#c64f00",
+                        "on-secondary-fixed-variant": "#454748",
+                        "secondary-fixed": "#e1e3e4",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "on-tertiary-fixed": "#351000",
+                        "background": "#F5F6F7", /* Override to match prompt */
+                        "inverse-surface": "#303032",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e4e2e4",
+                        "primary-container": "#006ef2",
+                        "surface-container-low": "#f6f3f5",
+                        "on-primary-fixed-variant": "#004398",
+                        "tertiary": "#9e3d00",
+                        "on-primary-fixed": "#001a43",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#fffbff",
+                        "secondary-fixed-dim": "#c5c7c8",
+                        "surface-variant": "#e4e2e4",
+                        "on-primary-container": "#fefcff",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#1b1b1d",
+                        "on-secondary-fixed": "#191c1d",
+                        "primary-fixed-dim": "#afc6ff",
+                        "primary-fixed": "#d9e2ff",
+                        "inverse-primary": "#afc6ff",
+                        "custom-blue": "#1677FF"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem", /* 12px roughly */
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "base-unit": "4px",
+                        "gutter": "16px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Manrope"],
+                        "label-caps": ["Manrope"],
+                        "body-sm": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F5F6F7;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+        
+        /* Custom Input Styling */
+        .input-field {
+            background-color: #F5F6F7;
+            border: 1px solid transparent;
+            transition: all 0.2s ease-in-out;
+        }
+        .input-field:focus-within {
+            border-color: #1677FF;
+            background-color: #FFFFFF;
+        }
+        
+        .input-reset {
+            background: transparent;
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+        .input-reset:focus {
+            box-shadow: none;
+        }
+
+        /* Mobile Container Max Width */
+        .mobile-container {
+            max-width: 375px;
+            margin: 0 auto;
+            min-height: 100vh;
+            position: relative;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased text-on-surface">
+<div class="mobile-container flex flex-col px-container-margin pt-[80px] pb-container-margin">
+<!-- Header Section -->
+<div class="flex flex-col items-center justify-center mb-stack-lg animate-fade-in-up">
+<div class="w-[72px] h-[72px] rounded-full bg-custom-blue flex items-center justify-center mb-stack-md shadow-[0_8px_16px_rgba(22,119,255,0.2)]">
+<span class="material-symbols-outlined text-on-primary text-[36px]" style="font-variation-settings: 'FILL' 1;">
+                    account_balance
+                </span>
+</div>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-on-background mb-stack-sm tracking-tight">ARISE</h1>
+<p class="text-body-lg font-body-lg text-secondary">家庭资产管理</p>
+</div>
+<!-- Main Login Card -->
+<div class="bg-surface-container-lowest rounded-xl p-container-margin shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-[#E8E8E8] w-full animate-fade-in-up" style="animation-delay: 0.1s;">
+<form class="flex flex-col gap-stack-md">
+<!-- Contact Input -->
+<div class="input-field rounded-lg px-gutter h-[48px] flex items-center">
+<input autocomplete="username" class="input-reset w-full text-body-lg font-body-lg text-on-surface placeholder:text-secondary-fixed-dim" placeholder="请输入手机号或邮箱" type="text">
+</div>
+<!-- Graphic Captcha -->
+<div class="input-field rounded-lg pl-gutter h-[48px] flex items-center justify-between overflow-hidden">
+<input class="input-reset w-full text-body-lg font-body-lg text-on-surface placeholder:text-secondary-fixed-dim" placeholder="请输入图形验证码" type="text">
+<!-- Captcha Image Placeholder -->
+<div class="h-full w-[100px] bg-surface-container-highest shrink-0 flex items-center justify-center border-l border-outline-variant/30 cursor-pointer hover:bg-surface-dim transition-colors">
+<img class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="A stylized graphic captcha image for a login screen. The image should feature random distorted alphanumeric characters (e.g., 'A8K2') against a light, noisy background to prevent automated reading. The aesthetic should be clean, modern, and match a high-end light mode user interface, utilizing soft grey and muted blue tones. High resolution, flat design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKBn943Y2FIB2PCRVm875wYBc23e2OjpRQTWFhLGXkVp12XuC-aguyCaoF9lg-r9h_i3f_nwad8AB1lXqqRg13kip73uS_dBzbVKhrSCfjteGdugurD502-H3EiahjcZhjZezyYiTY8sywEgyS-rKxgWtUdd_ExtyrdMzLzjqOUjsGPLSRZnbHDH7Z-PJh6aI0WLqRZuQWvS7oAssir2QgiPi3D189e5iq3e7qEJioYh-_8WW3PODVdT_JqaMlLMpZ2L5Ho7NgUalm">
+</div>
+</div>
+<!-- Verification Code -->
+<div class="input-field rounded-lg px-gutter h-[48px] flex items-center justify-between">
+<input class="input-reset w-full text-body-lg font-body-lg text-on-surface placeholder:text-secondary-fixed-dim" placeholder="请输入验证码" type="text">
+<button class="shrink-0 text-custom-blue text-body-sm font-body-sm whitespace-nowrap pl-stack-md hover:opacity-80 active:opacity-60 transition-opacity font-semibold" type="button">
+                        获取验证码
+                    </button>
+</div>
+<!-- Login Button -->
+<button class="w-full h-[48px] bg-custom-blue text-on-primary rounded-lg text-body-lg font-body-lg font-semibold mt-stack-sm hover:bg-opacity-90 active:scale-[0.98] transition-all flex items-center justify-center shadow-sm" type="submit">
+                    登录
+                </button>
+</form>
+</div>
+<!-- Footer -->
+<div class="mt-auto pt-stack-lg text-center animate-fade-in-up" style="animation-delay: 0.2s;">
+<p class="text-label-caps font-label-caps text-secondary-fixed-dim tracking-normal">
+                首次登录将自动注册，登录即代表同意<br>
+<a class="text-custom-blue hover:underline" href="#">《用户协议》</a>和<a class="text-custom-blue hover:underline" href="#">《隐私政策》</a>
+</p>
+</div>
+</div>
+<script>
+        // Simple micro-interaction for input fields
+        document.querySelectorAll('.input-reset').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('shadow-[0_0_0_2px_rgba(22,119,255,0.1)]');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('shadow-[0_0_0_2px_rgba(22,119,255,0.1)]');
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ARISE - 我的</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e6e8eb",
+                        "primary-fixed-dim": "#afc6ff",
+                        "primary-container": "#006ef2",
+                        "tertiary": "#256a00",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#aec8f0",
+                        "secondary": "#466082",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f2f4f7",
+                        "surface": "#f7f9fc",
+                        "on-tertiary-container": "#f8ffee",
+                        "inverse-surface": "#2d3133",
+                        "surface-variant": "#e0e3e6",
+                        "tertiary-fixed-dim": "#6de039",
+                        "primary": "#0057c2",
+                        "on-secondary-fixed-variant": "#2e4869",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#004398",
+                        "surface-bright": "#f7f9fc",
+                        "outline-variant": "#c1c6d7",
+                        "surface-tint": "#0059c7",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "background": "#f7f9fc",
+                        "surface-container": "#eceef1",
+                        "secondary-container": "#bcd6fe",
+                        "primary-fixed": "#d9e2ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#fefcff",
+                        "on-surface": "#191c1e",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#001a43",
+                        "inverse-on-surface": "#eff1f4",
+                        "on-secondary-fixed": "#001c38",
+                        "secondary-fixed": "#d3e4ff",
+                        "inverse-primary": "#afc6ff",
+                        "on-tertiary-fixed-variant": "#1a5200",
+                        "on-surface-variant": "#414755",
+                        "on-tertiary-fixed": "#062100",
+                        "surface-dim": "#d8dadd",
+                        "surface-container-highest": "#e0e3e6",
+                        "on-secondary-container": "#435d7f",
+                        "tertiary-fixed": "#88fd54",
+                        "outline": "#727786",
+                        "on-background": "#191c1e",
+                        "tertiary-container": "#308600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-padding": "32px",
+                        "stack-md": "20px",
+                        "stack-sm": "12px",
+                        "unit": "8px",
+                        "card-gap": "24px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .toggle-checkbox:checked { right: 0; border-color: #0057c2; }
+        .toggle-checkbox:checked + .toggle-label { background-color: #0057c2; }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col pb-24">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-surface-bright dark:bg-surface-dim shadow-[0px_4px_20px_rgba(0,33,64,0.05)]">
+<div class="flex justify-between items-center px-container-padding py-stack-sm w-full">
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform flex items-center justify-center text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile tracking-tighter text-primary dark:text-primary-fixed-dim">ARISE</h1>
+<div class="hover:opacity-80 transition-opacity active:scale-95 transition-transform w-8 h-8 rounded-full overflow-hidden bg-surface-variant flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A highly detailed close-up corporate headshot of a modern professional in a minimalist studio. High-key soft white lighting creates a bright, premium light-mode aesthetic. The subject is confident, evoking security and upward mobility. Corporate blue accents subtly reflect in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZB9ngeOEBg1nf0OqIv7jNqPTMV3IeZ7iqTW0L7Wf8inTNeBG9S0i3bQaggvPVlaMdbMvu4ISEWEgeabFATQytd3KnwZRHJVgpIuUM_hmDSpBjNr3-J3L6XUY0afgg8HCnZ491h1A8vpqmZFPfHjN0QO3FoXIU47RQcArGNW-Q5zvPdLfT0_J4gzndqhp0fR1ncuvIFDKVLWUA0AjE516wTMldpbgsmuk9BtuLJcMCF7qcbKD6VATD1g">
+</div>
+</div>
+<div class="w-full text-center pb-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">我的</h2>
+</div>
+</header>
+<main class="flex-1 px-4 mt-6 max-w-md mx-auto w-full flex flex-col gap-stack-md">
+<!-- User Profile Card -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-[0px_4px_20px_rgba(0,33,64,0.05)] flex items-center justify-between border border-outline-variant/30 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+<!-- Glassmorphism Flare -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center gap-4 z-10">
+<div class="w-16 h-16 rounded-full border-2 border-primary/20 p-1">
+<img class="w-full h-full rounded-full object-cover shadow-sm" data-alt="A highly detailed, professional avatar portrait for a modern financial app. High-key soft white lighting creates a bright, premium light-mode aesthetic. The individual is sharply dressed, exuding confidence and upward mobility against a clean, abstract corporate blue backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB66cq-vdxGxXKxlaBtNoJxjC4x2wK2phEBV0SAAv_15RVbwImm2THtCQmoWK7wh3PeypYs0M0foZ6AMYqUvAp3xHeHPN2vYihbVthW1EAm7vpUg7b3YdI81fY8_u6jItZbmKYqpS6mae_5gN6sXHkjyHnY5UsoS6bQWvMScg-pHMN-qUFeDskmtIqp_0K50dMQ61Z1s7J0thk-r7SN73afwNmusx5eQUQD-COmqknyfP7wf12RpJ-J4Q">
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Alex Zhang</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">alex.zhang@arise.com</p>
+</div>
+</div>
+<button class="flex items-center justify-center text-primary hover:bg-primary/10 p-2 rounded-full transition-colors z-10 active:scale-95">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</section>
+<!-- Privacy Settings -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(0,33,64,0.05)] border border-outline-variant/30 overflow-hidden">
+<div class="p-4 flex items-center justify-between">
+<div class="flex flex-col pr-4">
+<span class="font-body-md text-body-md text-on-surface font-medium">向家庭成员开放我的明细</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">开启后其他成员可查看您的资产明细</span>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in flex-shrink-0">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-outline-variant appearance-none cursor-pointer transition-all duration-300 z-10 left-0 checked:translate-x-6 checked:border-primary" id="toggle1" name="toggle" type="checkbox">
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-high cursor-pointer transition-colors duration-300" for="toggle1"></label>
+</div>
+</div>
+</section>
+<!-- Family Settings -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(0,33,64,0.05)] border border-outline-variant/30 flex flex-col"><a class="p-4 flex items-center justify-between border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors group" href="#create-join-family">
+<span class="font-body-md text-body-md text-on-surface">创建或加入家庭空间</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">add_circle</span>
+</div>
+</a>
+<a class="p-4 flex items-center justify-between border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors group" href="#p02">
+<span class="font-body-md text-body-md text-on-surface">当前家庭</span>
+<div class="flex items-center gap-2">
+<span class="font-body-md text-body-md text-primary font-medium">阿里斯大家庭</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</a>
+<button class="p-4 flex items-center justify-center hover:bg-error-container/30 transition-colors active:scale-[0.98]">
+<span class="font-body-md text-body-md text-error font-medium">退出家庭空间</span>
+</button>
+</section>
+<!-- Account Settings -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(0,33,64,0.05)] border border-outline-variant/30">
+<button class="w-full p-4 flex items-center justify-center hover:bg-error-container/30 transition-colors rounded-xl active:scale-[0.98]">
+<span class="font-body-md text-body-md text-error font-medium">退出登录</span>
+</button>
+</section>
+<!-- Footer -->
+<div class="mt-8 text-center pb-8">
+<span class="font-label-sm text-label-sm text-outline">ARISE V1.0.0</span>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline shadow-[0px_-4px_20px_rgba(0,33,64,0.05)] md:hidden"><div class="flex justify-around items-center w-full px-4 py-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors active:scale-90 transition-transform duration-200 rounded-lg" href="#overview">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm mt-1">Overview</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors active:scale-90 transition-transform duration-200 rounded-lg" href="#assets">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label-sm text-label-sm mt-1">Assets</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors active:scale-90 transition-transform duration-200 rounded-lg" href="#trends">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-sm text-label-sm mt-1">Trends</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-on-primary-container rounded-full px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors active:scale-90 transition-transform duration-200" href="#settings">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm mt-1">Me</span>
+</a>
+</div></nav>
+
+
+</body></html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html><html lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>拆分分类 - ARISE Finance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-surface-variant": "#414755",
+                    "primary-container": "#006ef2",
+                    "tertiary-fixed-dim": "#ffb595",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-container": "#f0edef",
+                    "on-primary-container": "#fefcff",
+                    "inverse-on-surface": "#f3f0f2",
+                    "inverse-primary": "#afc6ff",
+                    "surface-bright": "#fcf8fb",
+                    "on-background": "#1b1b1d",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#9e3d00",
+                    "surface": "#fcf8fb",
+                    "on-secondary-fixed": "#191c1d",
+                    "on-secondary-fixed-variant": "#444748",
+                    "outline-variant": "#c1c6d7",
+                    "primary-fixed": "#d9e2ff",
+                    "on-surface": "#1b1b1d",
+                    "surface-container-highest": "#e4e2e4",
+                    "on-tertiary-fixed": "#351000",
+                    "success": "#52c41a",
+                    "surface-variant": "#e4e2e4",
+                    "secondary": "#5c5f60",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#dcd9dc",
+                    "outline-muted": "#c1c6d7",
+                    "surface-canvas": "#fcf8fb",
+                    "warning": "#faad14",
+                    "on-primary-fixed": "#001a43",
+                    "tertiary-container": "#bf551c",
+                    "on-primary-fixed-variant": "#004398",
+                    "background": "#fcf8fb",
+                    "inverse-surface": "#303032",
+                    "primary": "#0057c2",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#626566",
+                    "surface-tint": "#0059c7",
+                    "secondary-container": "#e1e3e4",
+                    "on-tertiary-fixed-variant": "#7c2e00",
+                    "outline": "#727786",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#c5c7c8",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#eae7ea",
+                    "secondary-fixed": "#e1e3e4",
+                    "on-error": "#ffffff",
+                    "selection-bg": "#e6f7ff",
+                    "primary-fixed-dim": "#afc6ff",
+                    "surface-container-low": "#f6f3f5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "tree-indent": "24px",
+                    "base": "4px",
+                    "margin-lg": "24px",
+                    "stack-md": "16px",
+                    "stack-sm": "8px",
+                    "gutter-md": "16px",
+                    "node-gap": "8px"
+            },
+            "fontFamily": {
+                    "body-sm": [
+                            "Manrope"
+                    ],
+                    "tree-node": [
+                            "Manrope"
+                    ],
+                    "body-lg": [
+                            "Manrope"
+                    ],
+                    "headline-lg-mobile": [
+                            "Manrope"
+                    ],
+                    "label-caps": [
+                            "Manrope"
+                    ],
+                    "headline-lg": [
+                            "Manrope"
+                    ],
+                    "headline-md": [
+                            "Manrope"
+                    ]
+            },
+            "fontSize": {
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "tree-node": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+        },
+      }
+    }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-surface-lowest/80 backdrop-blur-md border border-outline-variant shadow-lg;
+            }
+            .material-symbols-outlined {
+              font-variation-settings:
+              'FILL' 0,
+              'wght' 400,
+              'GRAD' 0,
+              'opsz' 24
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface-canvas text-on-surface font-body-sm antialiased h-screen flex flex-col md:hidden">
+<!-- TopAppBar -->
+<header class="bg-surface-bright dark:bg-surface-dim fixed top-0 w-full z-50 border-b border-outline-variant dark:border-outline-muted flex items-center justify-between px-margin-lg h-16 max-w-7xl mx-auto">
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low transition-colors active:opacity-70 transition-opacity p-2 rounded-full -ml-2" onclick="history.back()">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-surface-tint">拆分分类</h1>
+<div class="w-10"></div> <!-- Placeholder for balance -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-16 pb-32 px-gutter-md overflow-y-auto">
+<!-- Context Info Card -->
+<div class="bg-primary-container text-on-primary-container rounded-xl p-stack-md mt-margin-lg mb-margin-lg shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="font-body-sm opacity-90">原分类: 商业地产投资</span>
+<span class="material-symbols-outlined text-xl opacity-90" data-weight="fill">account_balance</span>
+</div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile">
+                ¥850,000.00
+            </div>
+
+</div>
+<!-- Dynamic Entry List (Bento-style layout for cards) -->
+<div class="space-y-stack-md" id="split-entries-container">
+<!-- Entry Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-stack-md border border-outline-variant shadow-sm relative group">
+<button aria-label="删除分类" class="absolute top-3 right-3 text-on-surface-variant hover:text-error transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+<div class="space-y-stack-sm pr-8">
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">新分类名称</label>
+<input class="w-full bg-surface-container-low border border-outline-muted rounded-lg px-3 py-2 text-body-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline" placeholder="输入名称" type="text" value="写字楼 A 座">
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">分配金额 (¥)</label>
+<input class="w-full bg-surface-container-low border border-outline-muted rounded-lg px-3 py-2 text-body-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline font-mono amount-input" placeholder="0.00" type="number" value="500000">
+</div>
+</div>
+</div>
+<!-- Entry Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-stack-md border border-outline-variant shadow-sm relative group">
+<button aria-label="删除分类" class="absolute top-3 right-3 text-on-surface-variant hover:text-error transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+<div class="space-y-stack-sm pr-8">
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">新分类名称</label>
+<input class="w-full bg-surface-container-low border border-outline-muted rounded-lg px-3 py-2 text-body-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline" placeholder="输入名称" type="text" value="商铺 B 区">
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">分配金额 (¥)</label>
+<input class="w-full bg-surface-container-low border border-outline-muted rounded-lg px-3 py-2 text-body-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline font-mono amount-input" placeholder="0.00" type="number" value="300000">
+</div>
+</div>
+</div>
+</div>
+<!-- Add Button -->
+<button class="w-full mt-stack-md py-3 rounded-xl border-2 border-dashed border-primary/50 text-primary hover:bg-primary-fixed hover:border-primary transition-colors flex items-center justify-center gap-2 font-tree-node" id="add-entry-btn">
+<span class="material-symbols-outlined">add</span>
+            添加子分类
+        </button>
+</main>
+<!-- Floating Action Bar / Status Footer -->
+<div class="fixed bottom-0 w-full z-40 bg-surface-container-lowest/90 backdrop-blur-md border-t border-outline-variant shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe-area">
+<div class="p-gutter-md">
+<!-- Real-time Totaling -->
+<div class="flex justify-between items-end mb-stack-md">
+<div class="space-y-1">
+<div class="font-body-sm text-on-surface-variant">已分配 / 原金额</div>
+<div class="font-body-lg text-primary font-mono" id="allocated-display">¥800,000.00 / ¥850,000.00</div>
+</div>
+<div class="text-right space-y-1">
+<div class="font-body-sm text-on-surface-variant">待分配</div>
+<div class="font-headline-md text-headline-md text-warning font-mono" id="remaining-display">¥50,000.00</div>
+</div>
+</div>
+<!-- Confirm Button -->
+<button class="w-full bg-primary text-on-primary py-3 rounded-xl font-tree-node text-tree-node transition-all disabled:bg-surface-container-highest disabled:text-outline disabled:cursor-not-allowed flex justify-center items-center gap-2" disabled="" id="confirm-btn">
+                确认拆分
+            </button>
+</div>
+</div>
+<script>
+        // Micro-interaction logic for totaling
+        document.addEventListener('DOMContentLoaded', () => {
+            const originalAmount = 850000;
+            const container = document.getElementById('split-entries-container');
+            const allocatedDisplay = document.getElementById('allocated-display');
+            const remainingDisplay = document.getElementById('remaining-display');
+            const confirmBtn = document.getElementById('confirm-btn');
+            const addBtn = document.getElementById('add-entry-btn');
+
+            function formatCurrency(num) {
+                return '¥' + num.toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            }
+
+            function updateTotal() {
+                const inputs = document.querySelectorAll('.amount-input');
+                let allocated = 0;
+                inputs.forEach(input => {
+                    const val = parseFloat(input.value) || 0;
+                    allocated += val;
+                });
+
+                const remaining = originalAmount - allocated;
+                
+                allocatedDisplay.textContent = `${formatCurrency(allocated)} / ${formatCurrency(originalAmount)}`;
+                remainingDisplay.textContent = formatCurrency(remaining);
+
+                if (remaining === 0) {
+                    remainingDisplay.className = "font-headline-md text-headline-md text-success font-mono";
+                    confirmBtn.disabled = false;
+                    confirmBtn.classList.add('hover:bg-surface-tint', 'active:scale-[0.98]');
+                } else if (remaining < 0) {
+                    remainingDisplay.className = "font-headline-md text-headline-md text-error font-mono";
+                    confirmBtn.disabled = true;
+                    confirmBtn.classList.remove('hover:bg-surface-tint', 'active:scale-[0.98]');
+                } else {
+                    remainingDisplay.className = "font-headline-md text-headline-md text-warning font-mono";
+                    confirmBtn.disabled = true;
+                    confirmBtn.classList.remove('hover:bg-surface-tint', 'active:scale-[0.98]');
+                }
+            }
+
+            // Listen to initial inputs
+            container.addEventListener('input', (e) => {
+                if(e.target.classList.contains('amount-input')) {
+                    updateTotal();
+                }
+            });
+
+            // Add new entry logic
+            addBtn.addEventListener('click', () => {
+                const newCard = document.createElement('div');
+                newCard.className = 'bg-surface-container-lowest rounded-xl p-stack-md border border-outline-variant shadow-sm relative group transition-all opacity-0 scale-95';
+                newCard.innerHTML = `
+                    <button class="absolute top-3 right-3 text-on-surface-variant hover:text-error transition-colors p-1 delete-btn" aria-label="删除分类">
+                        <span class="material-symbols-outlined text-[20px]">delete</span>
+                    </button>
+                    <div class="space-y-stack-sm pr-8">
+                        <div>
+                            <label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">新分类名称</label>
+                            <input type="text" class="w-full bg-surface-container-low border border-outline-muted rounded-lg px-3 py-2 text-body-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline" placeholder="输入名称">
+                        </div>
+                        <div>
+                            <label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">分配金额 (¥)</label>
+                            <input type="number" class="w-full bg-surface-container-low border border-outline-muted rounded-lg px-3 py-2 text-body-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline font-mono amount-input" placeholder="0.00">
+                        </div>
+                    </div>
+                `;
+                container.appendChild(newCard);
+                
+                // Animate in
+                requestAnimationFrame(() => {
+                    newCard.classList.remove('opacity-0', 'scale-95');
+                });
+            });
+
+            // Delete entry logic (Event delegation)
+            container.addEventListener('click', (e) => {
+                const deleteBtn = e.target.closest('button');
+                if (deleteBtn && deleteBtn.querySelector('.material-symbols-outlined')?.textContent === 'delete') {
+                    const card = deleteBtn.closest('.group');
+                    card.classList.add('opacity-0', 'scale-95');
+                    setTimeout(() => {
+                        card.remove();
+                        updateTotal();
+                    }, 200); // match roughly with a short css transition if added
+                }
+            });
+
+            // Initial calculation
+            updateTotal();
+        });
+    </script>
+</body></html>

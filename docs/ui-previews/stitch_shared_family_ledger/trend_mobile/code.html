@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>趋势 - ARISE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#414755",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#afc6ff",
+                        "surface-container": "#eceef1",
+                        "primary-fixed": "#d9e2ff",
+                        "surface-variant": "#e0e3e6",
+                        "inverse-surface": "#2d3133",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#0059c7",
+                        "tertiary-fixed-dim": "#6de039",
+                        "tertiary-fixed": "#88fd54",
+                        "on-secondary-fixed": "#001c38",
+                        "tertiary": "#256a00",
+                        "on-primary-fixed-variant": "#004398",
+                        "secondary-fixed-dim": "#aec8f0",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "background": "#f7f9fc",
+                        "secondary": "#466082",
+                        "on-surface": "#191c1e",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d8dadd",
+                        "on-primary-fixed": "#001a43",
+                        "secondary-container": "#bcd6fe",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#1a5200",
+                        "inverse-on-surface": "#eff1f4",
+                        "surface-container-highest": "#e0e3e6",
+                        "outline": "#727786",
+                        "on-background": "#191c1e",
+                        "surface-container-high": "#e6e8eb",
+                        "primary-container": "#006ef2",
+                        "inverse-primary": "#afc6ff",
+                        "on-primary-container": "#fefcff",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#d3e4ff",
+                        "primary": "#0057c2",
+                        "surface": "#f7f9fc",
+                        "surface-container-low": "#f2f4f7",
+                        "on-tertiary-fixed": "#062100",
+                        "on-secondary-fixed-variant": "#2e4869",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#308600",
+                        "surface-bright": "#f7f9fc",
+                        "outline-variant": "#c1c6d7",
+                        "on-tertiary-container": "#f8ffee",
+                        "on-secondary-container": "#435d7f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-gap": "24px",
+                        "stack-sm": "12px",
+                        "unit": "8px",
+                        "stack-md": "20px",
+                        "container-padding": "32px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        /* CSS Bar Chart Styles */
+        .chart-grid { display: grid; grid-template-columns: 40px 1fr; gap: 16px; height: 300px; }
+        .y-axis { display: flex; flex-direction: column; justify-content: space-between; text-align: right; color: #727786; font-size: 12px; font-weight: 500; padding-bottom: 24px; }
+        .chart-area { position: relative; border-bottom: 1px solid #e0e3e6; display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 8px; }
+        .grid-line { position: absolute; left: 0; right: 0; border-top: 1px dashed #e0e3e6; z-index: 0; }
+        .month-group { display: flex; gap: 4px; z-index: 10; height: 100%; align-items: flex-end; position: relative; width: 40px; justify-content: center; }
+        .bar { width: 8px; border-radius: 4px 4px 0 0; transition: height 0.3s ease; }
+        .bar-assets { background-color: #0057c2; } /* Theme primary */
+        .bar-liabilities { background-color: #ba1a1a; } /* Theme error for liabilities */
+        .bar-networth { background-color: #256a00; } /* Theme tertiary for positive net worth */
+        .x-label { position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%); font-size: 12px; color: #727786; font-weight: 500; white-space: nowrap; }
+        
+        /* Custom Toggle */
+        .toggle-checkbox:checked { right: 0; border-color: #0057c2; }
+        .toggle-checkbox:checked + .toggle-label { background-color: #0057c2; }
+        .toggle-checkbox:checked + .toggle-label:after { transform: translateX(100%); border-color: white; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col antialiased">
+<!-- Top Navigation Bar (Suppressed global shell due to 'Back' intent, built custom page header following JSON style guidance) -->
+<header class="bg-surface shadow-[0_4px_20px_rgba(0,33,64,0.05)] w-full px-4 md:px-container-padding py-stack-sm flex justify-between items-center sticky top-0 z-50">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant/50 transition-colors active:scale-95 text-on-surface-variant">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface">【分类】资产趋势</h1>
+<!-- Toggle: Family / Personal -->
+<div class="flex items-center bg-surface-container-low rounded-full p-1 border border-outline-variant/30">
+<button class="px-3 py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-primary shadow-sm transition-all">
+                家庭
+            </button>
+<button class="px-3 py-1.5 rounded-full font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all">
+                个人
+            </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-4 md:px-container-padding py-stack-md flex flex-col gap-stack-md">
+<!-- Segmented Control (Monthly / Yearly) -->
+<div class="flex justify-center w-full mb-2">
+<div class="inline-flex bg-surface-container-high rounded-lg p-1">
+
+
+</div>
+</div><div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
+    <button class="px-4 py-1.5 rounded-full font-label-sm text-label-sm bg-primary text-on-primary whitespace-nowrap shadow-sm transition-all">全部</button>
+    <button class="px-4 py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant whitespace-nowrap hover:bg-surface-variant/50 transition-all">流动资产</button>
+    <button class="px-4 py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant whitespace-nowrap hover:bg-surface-variant/50 transition-all">固定资产</button>
+    <button class="px-4 py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant whitespace-nowrap hover:bg-surface-variant/50 transition-all">金融投资</button>
+    <button class="px-4 py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant whitespace-nowrap hover:bg-surface-variant/50 transition-all">负债</button>
+</div>
+<!-- Trend Chart Bento Card -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(0,33,64,0.05)] p-6 md:p-8 flex flex-col gap-6">
+<!-- Card Header & Legend -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">资产负债走势</h2>
+<div class="flex items-center gap-4 flex-wrap">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">总资产</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">总负债</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">净资产</span>
+</div>
+</div>
+</div>
+<!-- High-Fidelity CSS Chart -->
+<div class="chart-grid mt-4">
+<!-- Y-Axis -->
+<div class="y-axis font-label-sm">
+<span class="">50万</span>
+<span class="">40万</span>
+<span class="">30万</span>
+<span class="">20万</span>
+<span class="">10万</span>
+<span class="">0</span>
+</div>
+<!-- Chart Area -->
+<div class="chart-area">
+<!-- Background Grid Lines -->
+<div class="grid-line" style="bottom: 20%;"></div>
+<div class="grid-line" style="bottom: 40%;"></div>
+<div class="grid-line" style="bottom: 60%;"></div>
+<div class="grid-line" style="bottom: 80%;"></div>
+<div class="grid-line" style="bottom: 100%;"></div>
+<!-- Data Groups (Months) -->
+<!-- Month 1 -->
+<div class="month-group group cursor-pointer">
+<div class="bar bar-assets group-hover:opacity-80" style="height: 45%;"></div>
+<div class="bar bar-liabilities group-hover:opacity-80" style="height: 15%;"></div>
+<div class="bar bar-networth group-hover:opacity-80" style="height: 30%;"></div>
+<span class="x-label font-label-sm">01月</span>
+</div>
+<!-- Month 2 -->
+<div class="month-group group cursor-pointer">
+<div class="bar bar-assets group-hover:opacity-80" style="height: 50%;"></div>
+<div class="bar bar-liabilities group-hover:opacity-80" style="height: 18%;"></div>
+<div class="bar bar-networth group-hover:opacity-80" style="height: 32%;"></div>
+<span class="x-label font-label-sm">02月</span>
+</div>
+<!-- Month 3 -->
+<div class="month-group group cursor-pointer">
+<div class="bar bar-assets group-hover:opacity-80" style="height: 48%;"></div>
+<div class="bar bar-liabilities group-hover:opacity-80" style="height: 12%;"></div>
+<div class="bar bar-networth group-hover:opacity-80" style="height: 36%;"></div>
+<span class="x-label font-label-sm">03月</span>
+</div>
+<!-- Month 4 -->
+<div class="month-group group cursor-pointer">
+<div class="bar bar-assets group-hover:opacity-80" style="height: 60%;"></div>
+<div class="bar bar-liabilities group-hover:opacity-80" style="height: 20%;"></div>
+<div class="bar bar-networth group-hover:opacity-80" style="height: 40%;"></div>
+<span class="x-label font-label-sm">04月</span>
+</div>
+<!-- Month 5 -->
+<div class="month-group group cursor-pointer">
+<div class="bar bar-assets group-hover:opacity-80" style="height: 65%;"></div>
+<div class="bar bar-liabilities group-hover:opacity-80" style="height: 25%;"></div>
+<div class="bar bar-networth group-hover:opacity-80" style="height: 40%;"></div>
+<span class="x-label font-label-sm">05月</span>
+</div>
+<!-- Month 6 -->
+<div class="month-group group cursor-pointer">
+<div class="bar bar-assets group-hover:opacity-80" style="height: 75%;"></div>
+<div class="bar bar-liabilities group-hover:opacity-80" style="height: 22%;"></div>
+<div class="bar bar-networth group-hover:opacity-80" style="height: 53%;"></div>
+<span class="x-label font-label-sm text-primary font-bold">06月</span>
+</div>
+</div>
+</div>
+<!-- Summary Stats Below Chart -->
+
+</section>
+</main>
+
+
+</body></html>

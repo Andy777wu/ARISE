@@ -41,7 +41,9 @@ export function LoginPage() {
     <main className="login-page">
       <div className="login-container">
         <header className="login-header">
-          <div className="brand-icon" aria-hidden="true">▰</div>
+          <div className="brand-icon" aria-hidden="true">
+            ▰
+          </div>
           <h1>ARISE</h1>
           <p>家庭资产管理</p>
         </header>
@@ -113,7 +115,8 @@ export function LoginPage() {
         <footer className="login-footer">
           <p>首次登录将自动注册，登录即代表同意</p>
           <p>
-            <a href="#agreement">《用户协议》</a> 和 <a href="#privacy">《隐私政策》</a>
+            <a href="#agreement">《用户协议》</a> 和{' '}
+            <a href="#privacy">《隐私政策》</a>
           </p>
         </footer>
       </div>

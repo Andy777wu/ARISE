@@ -14,6 +14,7 @@ export function useAuth() {
   const [captcha, setCaptcha] = useState<CaptchaData | null>(null)
   const [error, setError] = useState('')
   const [sending, setSending] = useState(false)
+  const [codeCooldown, setCodeCooldown] = useState(0)
 
   const refreshCaptcha = useCallback(async () => {
     const response = await getCaptcha()
@@ -23,6 +24,16 @@ export function useAuth() {
   useEffect(() => {
     void refreshCaptcha().catch(() => setError('验证码加载失败'))
   }, [refreshCaptcha])
+
+  useEffect(() => {
+    if (codeCooldown === 0) return
+
+    const timer = window.setInterval(() => {
+      setCodeCooldown((seconds) => Math.max(seconds - 1, 0))
+    }, 1000)
+
+    return () => window.clearInterval(timer)
+  }, [codeCooldown])
 
   const sendCode = async (contact: string, captchaCode: string) => {
     if (!captcha) return
@@ -34,6 +45,7 @@ export function useAuth() {
         captcha_id: captcha.captcha_id,
         captcha_code: captchaCode,
       })
+      setCodeCooldown(60)
     } catch (requestError) {
       setError(messageFrom(requestError))
       await refreshCaptcha()
@@ -69,6 +81,7 @@ export function useAuth() {
     captcha,
     error,
     sending,
+    codeCooldown,
     refreshCaptcha,
     sendCode,
     loginWithCode,
